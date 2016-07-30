@@ -33,7 +33,7 @@ New controller has 5 basic actions:
 * Update - find one item by condition and update fields
 * Remove - remove item by condition
 
-To run action get in from controller actions and call method run
+To execute action, you can get it from controller actions and call method `run()`
 
 ```javascript
 controller.actions.list.run({my_field: 'my_field_value'})
@@ -245,7 +245,7 @@ Extended usage
 Controller factory allows to define your own actions and overload default actions
 
 All actions has BaseAction context and `BaseAction#Model` can be accessed.
-This can be used to provide model independent actions
+It can be used to provide model independent actions
  
 Use `run()` method to execute custom action
 
