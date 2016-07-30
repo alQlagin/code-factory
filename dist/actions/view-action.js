@@ -1,0 +1,47 @@
+/**
+ * Created by alex on 29.07.16.
+ */
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _baseAction = require('./base-action');
+
+var _baseAction2 = _interopRequireDefault(_baseAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ViewAction = function (_BaseAction) {
+    _inherits(ViewAction, _BaseAction);
+
+    function ViewAction() {
+        _classCallCheck(this, ViewAction);
+
+        return _possibleConstructorReturn(this, Object.getPrototypeOf(ViewAction).apply(this, arguments));
+    }
+
+    _createClass(ViewAction, [{
+        key: 'run',
+        value: function run(condition) {
+            return this.Model.findOne(condition).then(function (item) {
+                if (!item) throw new Error('nothing found');
+                return item;
+            });
+        }
+    }]);
+
+    return ViewAction;
+}(_baseAction2.default);
+
+exports.default = ViewAction;
+//# sourceMappingURL=view-action.js.map
