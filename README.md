@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/alQlagin/code-factory.svg?branch=master)](https://travis-ci.org/alQlagin/code-factory)
+
 Install
 =======
 
