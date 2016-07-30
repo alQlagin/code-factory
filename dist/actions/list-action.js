@@ -40,11 +40,27 @@ var ListAction = function (_BaseAction) {
         return _this;
     }
 
+    /**
+     *
+     * @param condition
+     * @returns {Query}
+     */
+
+
     _createClass(ListAction, [{
         key: 'run',
         value: function run(condition) {
             return this.Model.find(condition);
         }
+
+        /**
+         *
+         * @param condition
+         * @param currentPage
+         * @param perPage
+         * @returns {Promise.<TResult>}
+         */
+
     }, {
         key: 'paginate',
         value: function paginate(condition) {

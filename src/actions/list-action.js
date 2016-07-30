@@ -5,7 +5,8 @@
 import BaseAction from './base-action';
 import Pagination from '../utils/pagination';
 
-export  default class ListAction extends BaseAction {
+
+export default class ListAction extends BaseAction {
     constructor(MogooseModel) {
         super(MogooseModel);
         this.defaults = {
@@ -14,9 +15,22 @@ export  default class ListAction extends BaseAction {
         }
     }
 
+    /**
+     *
+     * @param condition
+     * @returns {Query}
+     */
     run(condition) {
         return this.Model.find(condition);
     }
+
+    /**
+     *
+     * @param condition
+     * @param currentPage
+     * @param perPage
+     * @returns {Promise.<TResult>}
+     */
 
     paginate(condition, currentPage = 1, perPage = 10) {
         currentPage = Number(currentPage);
@@ -46,7 +60,6 @@ export  default class ListAction extends BaseAction {
                 }
             })
     }
-
 
 
 }
