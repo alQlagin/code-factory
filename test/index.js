@@ -239,10 +239,10 @@ describe('codeFacoty', function () {
         before(function (done) {
             controller = codeFactory.controllerFactory(Item, {
                 searchByText: function (text) {
-                    return Item.find({text: new RegExp(text, 'i')});
+                    return this.Model.find({text: new RegExp(text, 'i')});
                 },
                 view: function (id) {
-                    return Item.findById(id);
+                    return this.Model.findById(id);
                 }
             });
             done();
