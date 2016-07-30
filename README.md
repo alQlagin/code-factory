@@ -42,6 +42,7 @@ Actions
 =======
  
 All actions have main method `run()` which returns Promise
+
 Method `run()` resolves with method result and rejects when error occurred
 
 List
@@ -55,7 +56,7 @@ controller.actions.list.run(condition)
     .catch(err => console.error(err))
 ```
 
-ListAction has special method ```paginate(condition, currentPage=1, perPage=10)``` which returns specific object
+ListAction has method ```paginate(condition, currentPage=1, perPage=10)``` which returns specific object
 
 ```javascript
 {
@@ -120,7 +121,7 @@ controller.actions.update.run(condition, {title: 'Code factory'})
 
 **Deep merge**
 
-This feature allows to extend hierarchical fields when true
+This feature allows to extend hierarchical fields when `true`
 
 ```javascript
 /**
@@ -169,8 +170,10 @@ controller.actions.update.run(condition, {meta: {description: 'UpdateAction.run(
 ```
 
 By default `UpdateAction.run(condition)` uses [lodash.assign](https://lodash.com/docs#assign) 
+
 Merge algorithm uses [lodash.merge](https://lodash.com/docs#merge)
-Be careful with complex models and [overload](#extended) method if needed. 
+
+**Be careful with complex models and [overload](#extended) method if needed.** 
 
 Create
 ------
@@ -223,7 +226,9 @@ First argument is an **express** response object
 
 Second argument is header titles settings (options)
 
-Default headers object is ```javascript
+Default headers object is 
+
+```javascript
 {
     totalCount: 'pagination-totalCount',
     perPage: 'pagination-perPage',
